@@ -1,0 +1,26 @@
+import type { Animal } from '../classes/Animal.js';
+
+export class Inventario {
+    private animais: Animal[] = [];
+
+    adicionar (animal: Animal): void {
+        this.animais.push(animal);
+    }
+
+
+    lista () {
+        console.log('=== Inventário de Animais ===');
+        this.animais.forEach((a, i) => {
+            console.log(`${i + 1}. ${a.nome} (${a.constructor.name})`);
+        })
+    }
+
+
+    interagirTodos() {
+      for (const a of this.animais) {
+        a.emitirSom();
+        a.mover();
+      }
+    }
+}
+
